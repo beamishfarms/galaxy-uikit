@@ -59,13 +59,10 @@ function __rest(s, e) {
     return t;
 }
 
-/** @deprecated */
-function __spreadArrays() {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
+function __spreadArray(to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 }
 
 function __makeTemplateObject(cooked, raw) {
@@ -611,9 +608,9 @@ var StyledBreadcrumbs = styled__default['default'].ul(templateObject_2$2 || (tem
 var insertSeparators = function (items, separator) {
     return items.reduce(function (accum, item, index) {
         if (index === 0) {
-            return __spreadArrays(accum, [item]);
+            return __spreadArray(__spreadArray([], accum), [item]);
         }
-        return __spreadArrays(accum, [
+        return __spreadArray(__spreadArray([], accum), [
             React__default['default'].createElement(Separator, { "aria-hidden": true, key: "seperator-" + index }, separator),
             item,
         ]);
@@ -1231,7 +1228,7 @@ var byTextDescending = function (getTextProperty) { return function (objectA, ob
 
 var sortByColumn = function (data, sortColumn, columns) {
     var isAscending = null;
-    var sortedRows = __spreadArrays(data);
+    var sortedRows = __spreadArray([], data);
     columns.forEach(function (column) {
         // if the row was found
         if (sortColumn === column.name) {
@@ -1282,7 +1279,7 @@ var createReducer = function () { return function (state, action) {
     var rowIds = {};
     switch (action.type) {
         case "SET_ROWS":
-            rows = __spreadArrays(action.data);
+            rows = __spreadArray([], action.data);
             // preserve sorting if a sort is already enabled when data changes
             if (state.sortColumn) {
                 rows = sortByColumn(action.data, state.sortColumn, state.columns);
@@ -1491,7 +1488,7 @@ var useTable = function (columns, data, options) {
         dispatch({ type: "SET_ROWS", data: tableData });
     }, [tableData]);
     var headers = React.useMemo(function () {
-        return __spreadArrays(state.columns.map(function (column) {
+        return __spreadArray([], state.columns.map(function (column) {
             var label = column.label ? column.label : column.name;
             return __assign(__assign({}, column), { render: makeHeaderRender(label, column.headerRender) });
         }));
@@ -2156,6 +2153,10 @@ var socials = [
                 label: "Announcements",
                 href: "https://t.me/goosefinanceann",
             },
+            // {
+            //   label: "Whale Alert",
+            //   href: "https://t.me/PancakeSwapWhales",
+            // },
         ],
     },
     {
@@ -2742,12 +2743,12 @@ var templateObject_1$K;
 
 var baseColors = {
     failure: "#ED4B9E",
-    primary: "#aa8929",
-    primaryBright: "#aa8929",
-    primaryDark: "#aa8929",
+    primary: "#5641D8",
+    primaryBright: "#5641D8",
+    primaryDark: "#5641D8",
     secondary: "#7645D9",
     success: "#31D0AA",
-    warning: "#FFB237",
+    warning: "#5641D8",
 };
 var brandColors = {
     binance: "#F0B90B",
