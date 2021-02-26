@@ -124,7 +124,7 @@ const Menu: React.FC<NavProps> = ({
           <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}
         </Flex>
-      </StyledNav>
+      </StyledNav> 
       <BodyWrapper>
         <Panel
           isPushed={isPushed}
