@@ -11,7 +11,7 @@ interface Props {
   account: string;
   logout: () => void;
   onDismiss?: () => void;
-}
+} 
 
 const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null }) => (
   <Modal title="Your wallet" onDismiss={onDismiss}>

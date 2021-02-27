@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../components/Button/Button";
+import Text from "../../components/Text/Text";
 import { useWalletModal } from "../WalletModal";
 import { Login } from "../WalletModal/types";
 
@@ -17,12 +18,14 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
       {account ? (
         <Button
           size="md"
-          variant="tertiary"
+          
           onClick={() => {
             onPresentAccountModal();
           }}
         >
+          {/* <Text> */}
           {accountEllipsis}
+          {/* </Text> */}
         </Button>
       ) : (
         <Button
