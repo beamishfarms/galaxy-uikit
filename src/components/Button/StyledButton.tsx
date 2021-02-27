@@ -68,10 +68,10 @@ const StyledButton = styled.button<ButtonProps>`
   transition: background-color 0.2s;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
-  &:hover:not(:disabled):not(.button--disabled):not(:active) {
-    background-color: ${getButtonVariantProp("backgroundHover")};
-    border-color: ${getButtonVariantProp("borderColorHover")};
-  }
+  // &:hover:not(:disabled):not(.button--disabled):not(:active) {
+  //   background-color: ${getButtonVariantProp("backgroundHover")};
+  //   border-color: ${getButtonVariantProp("borderColorHover")};
+  // }
 
   &:focus:not(:active) {
     box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.secondary};
